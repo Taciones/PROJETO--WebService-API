@@ -1,0 +1,8 @@
+default: -p planets -p html -p pretty --publish-quiet
+ci:  -p json -p progress
+film: ENV_TYPE=film -p html -p pretty --publish-quiet
+planets: ENV_TYPE=planets -p html -p pretty --publish-quiet
+html: --format html --out=log/report.html
+json: --format json --out=log/report.json
+pretty: --format pretty
+progress: --format progress

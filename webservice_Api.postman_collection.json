@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "be0003ca-860a-4486-a3b5-79c24e1897ba",
+		"name": "webservice_Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://swapi.dev/api/planets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d72ba243-ba1f-4860-ac9f-6ba5312d4bdf",
+						"exec": [
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://swapi.dev/api/planets",
+					"protocol": "http",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"planets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://swapi.dev/api/films",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41a7b3dd-910c-4be2-8188-9b8d5f3c9f3a",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var serviceResponse = JSON.parse(responseBody);",
+							"var token = serviceResponse.token;",
+							"",
+							"postman.setEnvironmentVariable(\"mas-token\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/films",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"films"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
